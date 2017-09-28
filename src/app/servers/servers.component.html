@@ -1,4 +1,28 @@
-<p>
-  servers works!
-</p>
-<app-server></app-server>
+<div class="well">
+  <p>
+    servers works!
+  </p>
+  <h2>Data Binding</h2>
+  <app-server></app-server>
+  <h3>Using Property Binding: </h3>
+  <button class="btn btn-primary" [disabled]="!allowNewServer">Add Server</button>
+  <h3>Using Property Binding instead of String interpolation:</h3>
+  <p [innerText]="allowNewServer"></p>
+  <h3>Event Binding</h3>
+  <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
+  <p>{{serverCreationStatus}}</p>
+  <h3>Passing Data with Event Binding</h3>
+  <input type="text" class="form-control" (input)="onUpdateServerName($event)">
+  <p>{{ serverName }}</p>
+  <h3>2 Way Binding</h3>
+  <input type="text" class="form-control" [(ngModel)]="serverName">
+  <p>{{ serverName }}</p>
+  <hr />
+  <h3>ngModelChange Event</h3>
+  <input type="text" [(ngModel)]="userName" (ngModelChange)="onEnableReset()">
+  <p>{{ userName }}</p>
+  <button type="button" class="btn btn-primary" [disabled]="!reset" (click)="onResetUserName()">Reset</button>
+
+
+
+</div>
